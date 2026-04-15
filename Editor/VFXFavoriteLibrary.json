@@ -1,0 +1,876 @@
+{
+    "items": [
+        {
+            "path": "Assets/env/c3/s3effect/skill/22.11 2.15sz_xk_jqnl_sj_blue/22.11.15sz_xk_jqnl_sj_blue.prefab",
+            "name": "22.11.15sz_xk_jqnl_sj_blue",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.800000011920929,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/22.11.08xuezuwudi_born/xuezuwudi_born.prefab",
+            "name": "xuezuwudi_born",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.6000000238418579,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/22.11.08xuezuwudi_broke/xuezuwudi_broke.prefab",
+            "name": "xuezuwudi_broke",
+            "type": "Particle",
+            "loop": false,
+            "duration": 1.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/22.11.08xuezuwudi_loop/xuezuwudi_loop.prefab",
+            "name": "xuezuwudi_loop",
+            "type": "Particle",
+            "loop": true,
+            "duration": 1.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/22.11.09t13_fhz_born/221212.t13_fhz_born.prefab",
+            "name": "221212.t13_fhz_born",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.6000000238418579,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/22.11.09t13_fhz_loop/221212.t13_fhz_loop.prefab",
+            "name": "221212.t13_fhz_loop",
+            "type": "Particle",
+            "loop": true,
+            "duration": 0.05000000074505806,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/22.11.14sz_xk_jg/22.11.14sz_xk_jg.prefab",
+            "name": "22.11.14sz_xk_jg",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/22.11.15sz_xk_blackhole/22.11.15sz_xk_blackhole.prefab",
+            "name": "22.11.15sz_xk_blackhole",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/23shenhuo_shns_anquanquyu/23shenhuo_shns_anquanquyu.prefab",
+            "name": "23shenhuo_shns_anquanquyu",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/24gqc_hypy_changtai/24gqc_hypy_baohu_line (1).prefab",
+            "name": "24gqc_hypy_baohu_line (1)",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "直线",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/24gqc_hypy_changtai/24gqc_hypy_tubiao.prefab",
+            "name": "24gqc_hypy_tubiao",
+            "type": "Particle",
+            "loop": true,
+            "duration": 10.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/24lns_djzq_qiang/pf_fx_zuojiqiang_jiasu_v_extend2.prefab",
+            "name": "pf_fx_zuojiqiang_jiasu_v_extend2",
+            "type": "Line",
+            "loop": true,
+            "duration": 0.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "直线",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:16:43"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/2001_hit.prefab",
+            "name": "2001_hit",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.30000001192092898,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "受击",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/2022.10.12xuezuzhimang/xuezuzhimang.prefab",
+            "name": "xuezuzhimang",
+            "type": "Particle",
+            "loop": true,
+            "duration": 0.05000000074505806,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/2026lingshouguanqia/2026_kongqueshi_wb_jl.prefab",
+            "name": "2026_kongqueshi_wb_jl",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221127wnzj_dh/221127wnzj_dh.prefab",
+            "name": "221127wnzj_dh",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.5,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221127wnzj_dh2/221127wnzj_dh2.prefab",
+            "name": "221127wnzj_dh2",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.5,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221127wnzj_dh3/221127wnzj_dh3.prefab",
+            "name": "221127wnzj_dh3",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.5,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221127wnzj_dh4/221127wnzj_dh4.prefab",
+            "name": "221127wnzj_dh4",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.5,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221127wnzj_dh5/221127wnzj_dh5.prefab",
+            "name": "221127wnzj_dh5",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.5,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221127wnzj_dm/221127wnzj_dm.prefab",
+            "name": "221127wnzj_dm",
+            "type": "Particle",
+            "loop": true,
+            "duration": 0.05000000074505806,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221127wnzj_dm_die/221127wnzj_dm_die.prefab",
+            "name": "221127wnzj_dm_die",
+            "type": "Particle",
+            "loop": false,
+            "duration": 1.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "消散",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221127wnzj_hit/221127wnzj_hit.prefab",
+            "name": "221127wnzj_hit",
+            "type": "Particle",
+            "loop": false,
+            "duration": 1.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "受击",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221206fengzhu/221206fengzhu.prefab",
+            "name": "221206fengzhu",
+            "type": "Particle",
+            "loop": false,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221222_crazyhat_sj/221222_crazyhat_sj.prefab",
+            "name": "221222_crazyhat_sj",
+            "type": "Particle",
+            "loop": false,
+            "duration": 0.05000000074505806,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/221222alice_loop/221222alice_loop_delay0.54.prefab",
+            "name": "221222alice_loop_delay0.54",
+            "type": "Particle",
+            "loop": true,
+            "duration": 0.05000000074505806,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "冰",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/230111gf10lianchou_hud/230118gf10lianchou_hud.prefab",
+            "name": "230118gf10lianchou_hud",
+            "type": "Particle",
+            "loop": false,
+            "duration": 1.0,
+            "tags": [
+                "技能特效",
+                "UI特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14877958jlwz1_extend1_fz/14877958jlwz1_extend1_fz.prefab",
+            "name": "14877958jlwz1_extend1_fz",
+            "type": "Particle",
+            "loop": true,
+            "duration": 0.05000000074505806,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14877958jlwz2_extend1_fz/14877958jlwz2_extend1_fz.prefab",
+            "name": "14877958jlwz2_extend1_fz",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14877958jlwz2_extend2/14877958jlwz2_extend2.prefab",
+            "name": "14877958jlwz2_extend2",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14877958jlwz3_extend1_fz/14877958jlwz3_extend1_fz.prefab",
+            "name": "14877958jlwz3_extend1_fz",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14877958jlwz3_extend2/14877958jlwz3_extend2.prefab",
+            "name": "14877958jlwz3_extend2",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14877958jlwz3_extend3/14877958jlwz3_extend3.prefab",
+            "name": "14877958jlwz3_extend3",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:19:38"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14877958shuijing3_200/14877958shuijing3_200.prefab",
+            "name": "14877958shuijing3_200",
+            "type": "Particle",
+            "loop": false,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "UI特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14905778zzvip_drop/14905778zzvip_drop.prefab",
+            "name": "14905778zzvip_drop",
+            "type": "Particle",
+            "loop": false,
+            "duration": 6.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14905778zzvip_jg/14905778zzvip_jgloop.prefab",
+            "name": "14905778zzvip_jgloop",
+            "type": "Particle",
+            "loop": true,
+            "duration": 6.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14941568w_knzy_hit/14941568w_knzy_hit2.prefab",
+            "name": "14941568w_knzy_hit2",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "受击",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14941568w_knzy_pikan/14941568w_knzy_pikan.prefab",
+            "name": "14941568w_knzy_pikan",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14974232_uich_zycqwz/14974232_uich_zycqwz.prefab",
+            "name": "14974232_uich_zycqwz",
+            "type": "Particle",
+            "loop": true,
+            "duration": 6.0,
+            "tags": [
+                "技能特效",
+                "UI特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14974232_uich_zytxz/14974232_uich_zytxz.prefab",
+            "name": "14974232_uich_zytxz",
+            "type": "Particle",
+            "loop": true,
+            "duration": 6.0,
+            "tags": [
+                "技能特效",
+                "UI特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14974232_uich_zywwxq/14974232_uich_zywwxq.prefab",
+            "name": "14974232_uich_zywwxq",
+            "type": "Particle",
+            "loop": true,
+            "duration": 6.0,
+            "tags": [
+                "技能特效",
+                "UI特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14974232_uich_zyzz1/14974232_uich_zyzz1.prefab",
+            "name": "14974232_uich_zyzz1",
+            "type": "Particle",
+            "loop": true,
+            "duration": 6.0,
+            "tags": [
+                "技能特效",
+                "UI特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14974232_uich_zyzz2/14974232_uich_zyzz2.prefab",
+            "name": "14974232_uich_zyzz2",
+            "type": "Particle",
+            "loop": true,
+            "duration": 6.0,
+            "tags": [
+                "技能特效",
+                "UI特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/14989133w_jxh_bs/14989133w_jxh_bsm.prefab",
+            "name": "14989133w_jxh_bsm",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15003509titancyxl_born/15003509titancyxl_born.prefab",
+            "name": "15003509titancyxl_born",
+            "type": "Particle",
+            "loop": false,
+            "duration": 6.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15003509titancyxl_born/15003509titancyxl_born503_1.prefab",
+            "name": "15003509titancyxl_born503_1",
+            "type": "Particle",
+            "loop": true,
+            "duration": 15.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15003509titancyxl_born9.5s_z1/15003509titancyxl_born_z1zs.prefab",
+            "name": "15003509titancyxl_born_z1zs",
+            "type": "Particle",
+            "loop": false,
+            "duration": 9.46399974822998,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15003509titancyxl_hit/15003509titancyxl_hit.prefab",
+            "name": "15003509titancyxl_hit",
+            "type": "Particle",
+            "loop": false,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "受击",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15003509titancyxl_hithuo/15003509titancyxl_hithuo.prefab",
+            "name": "15003509titancyxl_hithuo",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "受击",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:21:25"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15096501libai_heti6.7s/15096501libai_heti6.7s.prefab",
+            "name": "15096501libai_heti6.7s",
+            "type": "Particle",
+            "loop": false,
+            "duration": 2.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15151896huakuixy/15151896huakuixyfinal.prefab",
+            "name": "15151896huakuixyfinal",
+            "type": "Particle",
+            "loop": false,
+            "duration": 12.0,
+            "tags": [
+                "技能特效",
+                "UI特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15166296hkzjs_extend2h_z/15166296hkzjs_extend2h_z.prefab",
+            "name": "15166296hkzjs_extend2h_z",
+            "type": "Particle",
+            "loop": true,
+            "duration": 10.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15166296hkzjs_extend7h_z/15166296hkzjs_extend7h_z.prefab",
+            "name": "15166296hkzjs_extend7h_z",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15166296hkzjs_extend11h/15166296hkzjs_extend11h.prefab",
+            "name": "15166296hkzjs_extend11h",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15166296hkzjs_extend13h/15166296hkzjs_extend13h.prefab",
+            "name": "15166296hkzjs_extend13h",
+            "type": "Particle",
+            "loop": true,
+            "duration": 9.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "收尾",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15197001gqc_wzj_debuff/15197001gqc_wzj_debuff.prefab",
+            "name": "15197001gqc_wzj_debuff",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "BUFF",
+                "DEBUFF",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15197001gqc_wzj_jqbuff/15197001gqc_wzj_jqbuff.prefab",
+            "name": "15197001gqc_wzj_jqbuff",
+            "type": "Particle",
+            "loop": true,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "BUFF",
+                "粒子",
+                "循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15197001gqc_wzj_shifa/15197001gqc_wzj_shifa.prefab",
+            "name": "15197001gqc_wzj_shifa",
+            "type": "Particle",
+            "loop": false,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15216577wzj_shield/15216577wzj_shield0919_3s.prefab",
+            "name": "15216577wzj_shield0919_3s",
+            "type": "Particle",
+            "loop": false,
+            "duration": 2.799999952316284,
+            "tags": [
+                "技能特效",
+                "场景特效",
+                "护盾",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        },
+        {
+            "path": "Assets/env/c3/s3effect/skill/15223924wzj_cj_ui/15223924wzj_cj_ui.prefab",
+            "name": "15223924wzj_cj_ui",
+            "type": "Particle",
+            "loop": false,
+            "duration": 5.0,
+            "tags": [
+                "技能特效",
+                "UI特效",
+                "场景特效",
+                "粒子",
+                "不循环"
+            ],
+            "addedDate": "2026-04-15 16:23:52"
+        }
+    ]
+}
