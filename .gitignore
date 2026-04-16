@@ -1,6 +1,8 @@
 # 开发者工具（仅开发者需要，使用者不需要）
 Editor/VFXTagManagerWindow.cs
 Editor/VFXTagManagerWindow.cs.meta
+Editor/VFXFavoriteManagerWindow.cs
+Editor/VFXFavoriteManagerWindow.cs.meta
 
 # 缓存文件
 *.asset

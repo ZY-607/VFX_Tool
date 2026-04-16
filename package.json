@@ -1,6 +1,6 @@
 {
   "name": "com.nd.vfxtools",
-  "version": "0.19.5",
+  "version": "0.19.6",
   "displayName": "ND VFX Tools",
   "description": "Unity特效制作工具集，包含VFX Composer（特效组合器）、VFX Filter（特效筛选器）和Library Browser（预制体浏览器），支持实时预览和快速组合。",
   "unity": "2021.3",
