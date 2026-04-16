@@ -1,22 +1,18 @@
-# 开发者工具（不发布）
+# 开发者工具（仅开发者需要，使用者不需要）
 Editor/VFXTagManagerWindow.cs
 Editor/VFXTagManagerWindow.cs.meta
-Editor/VFXFavoriteManagerWindow.cs
-Editor/VFXFavoriteManagerWindow.cs.meta
 
-# 缓存文件（不发布）
-Editor/VFXFilterCache.asset
-Editor/VFXFilterCache.asset.meta
-Editor/VFXLibraryCache.asset
-Editor/VFXLibraryCache.asset.meta
+# 缓存文件
+*.asset
+*.asset.meta
 
-# 测试和开发资源
+# 开发目录和测试资源
+Developer/
 VFX Test/
+VFX Test/*
 Resources/
+Resources/*
 Prefabs/
-
-# 系统文件
-.DS_Store
-Thumbs.db
-*.swp
-*~
+Prefabs/*
+Test/
+Test/*

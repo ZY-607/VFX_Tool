@@ -9,7 +9,7 @@ namespace VFXTools.Editor
 {
     public class VFXFilterWindow : EditorWindow
     {
-        private const string ToolVersion = "v0.19.2";
+        private const string ToolVersion = "v0.19.5";
         private const string LibraryCachePath = "Assets/VFX Tools/Editor/VFXLibraryCache.asset";
         private const string FilterCachePath = "Assets/VFX Tools/Editor/VFXFilterCache.asset";
         private const string ScanPathPrefsKey = "VFXFilter_ScanPath";
@@ -503,8 +503,8 @@ namespace VFXTools.Editor
                 fontStyle = FontStyle.Normal,
                 padding = new RectOffset(10, 10, 4, 4)
             };
-            inactiveFavoriteStyle.normal.background = GetCachedTexture(new Color(0.25f, 0.25f, 0.25f, 1f));
-            inactiveFavoriteStyle.normal.textColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+            inactiveFavoriteStyle.normal.background = GetCachedTexture(new Color(0.37f, 0.37f, 0.35f, 1f));
+            inactiveFavoriteStyle.normal.textColor = Color.white;
             
             GUIStyle activeScanStyle = new GUIStyle(GUI.skin.button)
             {
@@ -521,8 +521,8 @@ namespace VFXTools.Editor
                 fontStyle = FontStyle.Normal,
                 padding = new RectOffset(10, 10, 4, 4)
             };
-            inactiveScanStyle.normal.background = GetCachedTexture(new Color(0.25f, 0.25f, 0.25f, 1f));
-            inactiveScanStyle.normal.textColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+            inactiveScanStyle.normal.background = GetCachedTexture(new Color(0.35f, 0.37f, 0.37f, 1f));
+            inactiveScanStyle.normal.textColor = Color.white;
             
             if (GUILayout.Button("精选特效库", _showFavoriteLibrary ? activeFavoriteStyle : inactiveFavoriteStyle, GUILayout.Width(90), GUILayout.Height(28)))
             {
