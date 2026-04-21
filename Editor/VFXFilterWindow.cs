@@ -9,7 +9,7 @@ namespace VFXTools.Editor
 {
     public class VFXFilterWindow : EditorWindow
     {
-        private const string ToolVersion = "v0.22.5";
+        private const string ToolVersion = "v0.23.0";
         private const string LibraryCachePath = "Assets/VFX Tools/Editor/VFXLibraryCache.asset";
         private const string FilterCachePath = "Assets/VFX Tools/Editor/VFXFilterCache.asset";
         private const string ScanPathPrefsKey = "VFXFilter_ScanPath";
@@ -1211,13 +1211,19 @@ namespace VFXTools.Editor
                 var item = _filterLibrary[i];
                 if (item.tags != null)
                 {
-                    for (int j = 0; j < item.tags.Count; j++)
+                    var itemTagSet = new HashSet<string>(item.tags);
+                    bool matchesAll = true;
+                    foreach (var filter in activeFilterSet)
                     {
-                        if (activeFilterSet.Contains(item.tags[j]))
+                        if (!itemTagSet.Contains(filter))
                         {
-                            result.Add(item);
+                            matchesAll = false;
                             break;
                         }
+                    }
+                    if (matchesAll)
+                    {
+                        result.Add(item);
                     }
                 }
             }
