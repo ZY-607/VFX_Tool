@@ -476,5 +476,21 @@ namespace VFXTools.Editor
 
             return changedItems;
         }
+
+        private const string FilterCachePath = "Assets/VFX Tools/Editor/VFXFilterCache.asset";
+
+        public static void SyncTagsToFilterCache(string itemPath, List<string> tags)
+        {
+            var filterCache = AssetDatabase.LoadAssetAtPath<VFXFilterData>(FilterCachePath);
+            if (filterCache?.items == null) return;
+
+            var filterItem = filterCache.items.FirstOrDefault(i => i.path == itemPath);
+            if (filterItem == null) return;
+
+            filterItem.tags = new List<string>(tags);
+            EditorUtility.SetDirty(filterCache);
+            AssetDatabase.SaveAssets();
+            Debug.Log($"[精选库] 已同步标签到扫描库: {itemPath}");
+        }
     }
 }

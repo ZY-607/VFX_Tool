@@ -4,7 +4,7 @@ namespace VFXTools.Editor
 {
     public static class VFXEditorUtils
     {
-        private const string ToolVersion = "v0.22.4";
+        private const string ToolVersion = "v0.23.0";
 
         public static Texture2D MakeTexture(int width, int height, Color color)
         {
