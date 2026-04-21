@@ -633,7 +633,7 @@ namespace VFXTools.Editor
             var prefab = GetPrefabCached(item.path);
             if (prefab != null)
             {
-                VFXPreviewUtils.DrawDynamicThumbnail(previewRect, prefab, item.path, forceDynamic: true);
+                VFXPreviewUtils.DrawDynamicThumbnail(previewRect, prefab, item.path, forceDynamic: false);
             }
             else
             {

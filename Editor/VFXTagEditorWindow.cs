@@ -322,10 +322,6 @@ namespace VFXTools.Editor
             else if (_isFavoriteMode)
             {
                 VFXFavoriteManager.SaveLibrary();
-                if (_favoriteItem != null)
-                {
-                    VFXFavoriteManager.SyncTagsToFilterCache(_favoriteItem.path, _favoriteItem.tags);
-                }
             }
             else
             {
