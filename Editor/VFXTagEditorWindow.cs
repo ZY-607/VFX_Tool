@@ -16,6 +16,7 @@ namespace VFXTools.Editor
         private Vector2 _scrollPos;
         private bool _isFilterMode = false;
         private bool _isFavoriteMode = false;
+        private bool _hasUnsavedChanges = false;
 
         public static void ShowWindow(VFXLibraryData.VFXAssetItemData item, VFXLibraryData libraryData, System.Action onModified)
         {
@@ -83,6 +84,14 @@ namespace VFXTools.Editor
             return "未知";
         }
 
+        private void OnDestroy()
+        {
+            if (_hasUnsavedChanges)
+            {
+                SaveChanges();
+            }
+        }
+
         private void OnGUI()
         {
             var currentTags = GetCurrentTags();
@@ -114,11 +123,16 @@ namespace VFXTools.Editor
                 return;
             }
 
-            // 使用 ToList() 创建一个副本进行遍历，避免在遍历过程中修改集合导致异常
             var tagsToDraw = currentTags.ToList();
             string tagToRemove = null;
 
+            float availableWidth = EditorGUIUtility.currentViewWidth - 40f;
+            float tagSpacing = 5f;
+            float currentLineWidth = 0f;
+            
             EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
+            GUILayout.Space(0);
+            
             foreach (var tagName in tagsToDraw)
             {
                 Color tagColor = VFXTagPoolManager.GetTagColor(tagName);
@@ -129,17 +143,27 @@ namespace VFXTools.Editor
                 colorStyle.normal.textColor = VFXEditorUtils.GetContrastColor(tagColor);
                 colorStyle.alignment = TextAnchor.MiddleCenter;
 
-                EditorGUILayout.BeginHorizontal(colorStyle, GUILayout.Height(24));
+                float tagWidth = colorStyle.CalcSize(new GUIContent(tagName)).x + 40f;
+                
+                if (currentLineWidth + tagWidth > availableWidth && currentLineWidth > 0)
+                {
+                    EditorGUILayout.EndHorizontal();
+                    EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
+                    currentLineWidth = 0f;
+                }
+
+                EditorGUILayout.BeginHorizontal(colorStyle, GUILayout.Height(24), GUILayout.Width(tagWidth));
                 GUILayout.Label(tagName);
                 if (GUILayout.Button("×", GUILayout.Width(20), GUILayout.Height(20)))
                 {
                     tagToRemove = tagName;
                 }
                 EditorGUILayout.EndHorizontal();
+                
+                currentLineWidth += tagWidth + tagSpacing;
             }
             EditorGUILayout.EndHorizontal();
 
-            // 在遍历结束后执行删除操作
             if (!string.IsNullOrEmpty(tagToRemove))
             {
                 RemoveTag(tagToRemove);
@@ -268,15 +292,21 @@ namespace VFXTools.Editor
             if (!currentTags.Contains(tagName))
             {
                 currentTags.Add(tagName);
-                SaveChanges();
+                _hasUnsavedChanges = true;
+                _onModified?.Invoke();
+                Repaint();
             }
         }
 
         private void RemoveTag(string tagName)
         {
             var currentTags = GetCurrentTags();
-            currentTags.Remove(tagName);
-            SaveChanges();
+            if (currentTags.Remove(tagName))
+            {
+                _hasUnsavedChanges = true;
+                _onModified?.Invoke();
+                Repaint();
+            }
         }
 
         private void SaveChanges()

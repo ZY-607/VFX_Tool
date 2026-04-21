@@ -9,15 +9,16 @@ namespace VFXTools.Editor
 {
     public class VFXFilterWindow : EditorWindow
     {
-        private const string ToolVersion = "v0.19.6";
+        private const string ToolVersion = "v0.22.2";
         private const string LibraryCachePath = "Assets/VFX Tools/Editor/VFXLibraryCache.asset";
         private const string FilterCachePath = "Assets/VFX Tools/Editor/VFXFilterCache.asset";
         private const string ScanPathPrefsKey = "VFXFilter_ScanPath";
-        private const string DedupEnabledPrefsKey = "VFXFilter_DedupEnabled";
+        private const string ExcludeHtSuffixPrefsKey = "VFXFilter_ExcludeHtSuffix";
         
         private const float ItemHeight = 90f;
         private const float ItemSpacing = 5f;
         private const float TotalItemHeight = ItemHeight + ItemSpacing;
+        private const int ItemsPerPage = 500;
         
         private List<VFXFilterData.FilterItemData> _filterLibrary = new List<VFXFilterData.FilterItemData>();
         private VFXFilterData _filterCache;
@@ -25,16 +26,13 @@ namespace VFXTools.Editor
         private Vector2 _scrollPosLibrary;
         private string _scanPath = "Assets/VFX Tools";
         private List<string> _activeFilters = new List<string>();
-        private bool _enableDedup = true;
+        private bool _excludeHtSuffix = false;
         
         private List<VFXFilterData.FilterItemData> _filteredListCache;
         private int _lastFilterHash = -1;
         
-        private Dictionary<string, string> _previewHashCache = new Dictionary<string, string>();
-        private List<string> _previewHashCacheOrder = new List<string>();
-        private const int MaxPreviewHashCacheSize = 200;
-        private List<VFXFilterData.FilterItemData> _dedupedFilterCache;
-        private int _lastDedupHash = -1;
+        private List<VFXFilterData.FilterItemData> _excludeHtFilterCache;
+        private int _lastExcludeHtHash = -1;
         
         private GameObject _previewInstance;
         private List<ParticleSystem> _previewParticleSystems = new List<ParticleSystem>();
@@ -69,6 +67,9 @@ namespace VFXTools.Editor
         private const int MaxFavoritePrefabCacheSize = 100;
         
         private HashSet<string> _selectedItems = new HashSet<string>();
+        
+        private int _scanCurrentPage = 1;
+        private int _favoriteCurrentPage = 1;
 
         private static readonly Dictionary<string, string[]> TagKeywordAliases = new Dictionary<string, string[]>
         {
@@ -129,7 +130,7 @@ namespace VFXTools.Editor
         {
             _stylesInitialized = false;
             LoadScanPath();
-            LoadDedupSetting();
+            LoadExcludeHtSuffixSetting();
             LoadFilterCache();
             InvalidateFilterCache();
             LoadFavoriteLibrary();
@@ -157,8 +158,6 @@ namespace VFXTools.Editor
             VFXFavoriteManager.OnLibraryChanged -= OnFavoriteLibraryChanged;
             
             _colorTextureCache.Clear();
-            _previewHashCache.Clear();
-            _previewHashCacheOrder.Clear();
             _favoritePrefabCache.Clear();
             _favoritePrefabCacheOrder.Clear();
         }
@@ -292,17 +291,17 @@ namespace VFXTools.Editor
             EditorPrefs.SetString(ScanPathPrefsKey, _scanPath);
         }
 
-        private void LoadDedupSetting()
+        private void LoadExcludeHtSuffixSetting()
         {
-            if (EditorPrefs.HasKey(DedupEnabledPrefsKey))
+            if (EditorPrefs.HasKey(ExcludeHtSuffixPrefsKey))
             {
-                _enableDedup = EditorPrefs.GetBool(DedupEnabledPrefsKey);
+                _excludeHtSuffix = EditorPrefs.GetBool(ExcludeHtSuffixPrefsKey);
             }
         }
 
-        private void SaveDedupSetting()
+        private void SaveExcludeHtSuffixSetting()
         {
-            EditorPrefs.SetBool(DedupEnabledPrefsKey, _enableDedup);
+            EditorPrefs.SetBool(ExcludeHtSuffixPrefsKey, _excludeHtSuffix);
         }
 
         private void LoadFilterCache()
@@ -545,6 +544,63 @@ namespace VFXTools.Editor
             
             EditorGUILayout.EndHorizontal();
         }
+        
+        private void DrawPaginationControls(ref int currentPage, int totalPages, int totalCount)
+        {
+            if (totalPages <= 1) return;
+            
+            EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
+            
+            GUI.enabled = currentPage > 1;
+            if (GUILayout.Button("◀ 首页", GUILayout.Width(60), GUILayout.Height(22)))
+            {
+                currentPage = 1;
+            }
+            
+            GUI.enabled = currentPage > 1;
+            if (GUILayout.Button("◀ 上一页", GUILayout.Width(70), GUILayout.Height(22)))
+            {
+                currentPage--;
+            }
+            
+            GUI.enabled = true;
+            
+            GUILayout.Space(10);
+            
+            int jumpPage = currentPage;
+            string pageStr = GUILayout.TextField(jumpPage.ToString(), GUILayout.Width(40), GUILayout.Height(22));
+            if (int.TryParse(pageStr, out int newPage))
+            {
+                jumpPage = Mathf.Clamp(newPage, 1, totalPages);
+            }
+            
+            if (GUILayout.Button("跳转", GUILayout.Width(40), GUILayout.Height(22)))
+            {
+                currentPage = jumpPage;
+            }
+            
+            GUILayout.Space(10);
+            
+            GUI.enabled = currentPage < totalPages;
+            if (GUILayout.Button("下一页 ▶", GUILayout.Width(70), GUILayout.Height(22)))
+            {
+                currentPage++;
+            }
+            
+            GUI.enabled = currentPage < totalPages;
+            if (GUILayout.Button("末页 ▶", GUILayout.Width(60), GUILayout.Height(22)))
+            {
+                currentPage = totalPages;
+            }
+            
+            GUI.enabled = true;
+            
+            GUILayout.FlexibleSpace();
+            
+            GUILayout.Label($"每页 {ItemsPerPage} 项", EditorStyles.miniLabel);
+            
+            EditorGUILayout.EndHorizontal();
+        }
 
         private void DrawFavoriteLibraryView()
         {
@@ -552,8 +608,14 @@ namespace VFXTools.Editor
             DrawFilterBar();
 
             var filteredFavorites = GetFilteredFavoriteList();
+            int totalCount = filteredFavorites.Count;
+            int totalPages = Mathf.CeilToInt((float)totalCount / ItemsPerPage);
+            if (totalPages < 1) totalPages = 1;
             
-            if (filteredFavorites.Count == 0)
+            if (_favoriteCurrentPage > totalPages) _favoriteCurrentPage = totalPages;
+            if (_favoriteCurrentPage < 1) _favoriteCurrentPage = 1;
+            
+            if (totalCount == 0)
             {
                 _scrollPosFavorite = EditorGUILayout.BeginScrollView(_scrollPosFavorite);
                 GUILayout.Label("未找到符合筛选条件的精选特效。\n可清除筛选或联系开发者补充精选库。", EditorStyles.centeredGreyMiniLabel, GUILayout.Height(100));
@@ -562,36 +624,39 @@ namespace VFXTools.Editor
             else
             {
                 EditorGUILayout.BeginHorizontal();
-                GUILayout.Label($"共 {filteredFavorites.Count} 个精选特效", EditorStyles.miniLabel);
+                GUILayout.Label($"共 {totalCount} 个精选特效 | 第 {_favoriteCurrentPage}/{totalPages} 页", EditorStyles.miniLabel);
                 GUILayout.FlexibleSpace();
-                GUILayout.Label("(虚拟滚动已启用)", EditorStyles.miniLabel);
                 EditorGUILayout.EndHorizontal();
                 
-                float viewHeight = position.height - 200f;
+                DrawPaginationControls(ref _favoriteCurrentPage, totalPages, totalCount);
+                
+                int startIndex = (_favoriteCurrentPage - 1) * ItemsPerPage;
+                int endIndex = Mathf.Min(startIndex + ItemsPerPage, totalCount);
+                int pageItemCount = endIndex - startIndex;
+                
+                float viewHeight = position.height - 280f;
                 if (viewHeight < 100f) viewHeight = 100f;
                 
                 _scrollPosFavorite = EditorGUILayout.BeginScrollView(_scrollPosFavorite, GUILayout.Height(viewHeight));
                 
-                int totalCount = filteredFavorites.Count;
-                float totalContentHeight = totalCount * TotalItemHeight;
+                float totalContentHeight = pageItemCount * TotalItemHeight;
                 GUILayout.Space(totalContentHeight);
-                
-                Rect lastRect = GUILayoutUtility.GetLastRect();
                 
                 int firstVisibleIndex = Mathf.FloorToInt(_scrollPosFavorite.y / TotalItemHeight);
                 int lastVisibleIndex = Mathf.CeilToInt((_scrollPosFavorite.y + viewHeight) / TotalItemHeight);
                 
                 firstVisibleIndex = Mathf.Max(0, firstVisibleIndex - 1);
-                lastVisibleIndex = Mathf.Min(totalCount - 1, lastVisibleIndex + 1);
+                lastVisibleIndex = Mathf.Min(pageItemCount - 1, lastVisibleIndex + 1);
                 
                 float topPadding = firstVisibleIndex * TotalItemHeight;
                 
                 GUILayout.Space(-totalContentHeight);
                 GUILayout.Space(topPadding);
                 
-                for (int i = firstVisibleIndex; i <= lastVisibleIndex && i < totalCount; i++)
+                for (int i = firstVisibleIndex; i <= lastVisibleIndex && i < pageItemCount; i++)
                 {
-                    DrawFavoriteItem(filteredFavorites[i]);
+                    int actualIndex = startIndex + i;
+                    DrawFavoriteItem(filteredFavorites[actualIndex]);
                 }
                 
                 EditorGUILayout.EndScrollView();
@@ -743,6 +808,11 @@ namespace VFXTools.Editor
 
             var filteredList = GetFilteredListCached();
             int totalCount = filteredList.Count;
+            int totalPages = Mathf.CeilToInt((float)totalCount / ItemsPerPage);
+            if (totalPages < 1) totalPages = 1;
+            
+            if (_scanCurrentPage > totalPages) _scanCurrentPage = totalPages;
+            if (_scanCurrentPage < 1) _scanCurrentPage = 1;
 
             if (totalCount == 0)
             {
@@ -753,7 +823,7 @@ namespace VFXTools.Editor
             else
             {
                 EditorGUILayout.BeginHorizontal();
-                GUILayout.Label($"找到 {totalCount} 个完整特效预制体", EditorStyles.miniLabel);
+                GUILayout.Label($"共 {totalCount} 个特效 | 第 {_scanCurrentPage}/{totalPages} 页", EditorStyles.miniLabel);
                 GUILayout.FlexibleSpace();
                 
                 int selectedCount = _selectedItems.Count;
@@ -771,34 +841,37 @@ namespace VFXTools.Editor
                     GUI.enabled = true;
                 }
                 
-                GUILayout.Label("(虚拟滚动已启用)", EditorStyles.miniLabel);
                 EditorGUILayout.EndHorizontal();
                 
-                float viewHeight = position.height - 200f;
+                DrawPaginationControls(ref _scanCurrentPage, totalPages, totalCount);
+                
+                int startIndex = (_scanCurrentPage - 1) * ItemsPerPage;
+                int endIndex = Mathf.Min(startIndex + ItemsPerPage, totalCount);
+                int pageItemCount = endIndex - startIndex;
+                
+                float viewHeight = position.height - 280f;
                 if (viewHeight < 100f) viewHeight = 100f;
                 
                 _scrollPosLibrary = EditorGUILayout.BeginScrollView(_scrollPosLibrary, GUILayout.Height(viewHeight));
                 
-                float totalContentHeight = totalCount * TotalItemHeight;
+                float totalContentHeight = pageItemCount * TotalItemHeight;
                 GUILayout.Space(totalContentHeight);
-                
-                Rect lastRect = GUILayoutUtility.GetLastRect();
-                float scrollAreaHeight = lastRect.y + lastRect.height;
                 
                 int firstVisibleIndex = Mathf.FloorToInt(_scrollPosLibrary.y / TotalItemHeight);
                 int lastVisibleIndex = Mathf.CeilToInt((_scrollPosLibrary.y + viewHeight) / TotalItemHeight);
                 
                 firstVisibleIndex = Mathf.Max(0, firstVisibleIndex - 1);
-                lastVisibleIndex = Mathf.Min(totalCount - 1, lastVisibleIndex + 1);
+                lastVisibleIndex = Mathf.Min(pageItemCount - 1, lastVisibleIndex + 1);
                 
                 float topPadding = firstVisibleIndex * TotalItemHeight;
                 
                 GUILayout.Space(-totalContentHeight);
                 GUILayout.Space(topPadding);
                 
-                for (int i = firstVisibleIndex; i <= lastVisibleIndex && i < totalCount; i++)
+                for (int i = firstVisibleIndex; i <= lastVisibleIndex && i < pageItemCount; i++)
                 {
-                    DrawFilterItem(filteredList[i]);
+                    int actualIndex = startIndex + i;
+                    DrawFilterItem(filteredList[actualIndex]);
                 }
                 
                 EditorGUILayout.EndScrollView();
@@ -953,11 +1026,11 @@ namespace VFXTools.Editor
             
             GUILayout.Space(10);
             
-            bool newDedup = GUILayout.Toggle(_enableDedup, new GUIContent("去重", "基于预览图相似度自动过滤重复特效"), GUILayout.Width(50));
-            if (newDedup != _enableDedup)
+            bool newExcludeHt = GUILayout.Toggle(_excludeHtSuffix, new GUIContent("去_ht", "过滤名称以 _ht 或 _hutong 结尾的特效"), GUILayout.Width(55));
+            if (newExcludeHt != _excludeHtSuffix)
             {
-                _enableDedup = newDedup;
-                SaveDedupSetting();
+                _excludeHtSuffix = newExcludeHt;
+                SaveExcludeHtSuffixSetting();
                 InvalidateFilterCache();
             }
             
@@ -1045,10 +1118,12 @@ namespace VFXTools.Editor
         {
             _lastFilterHash = -1;
             _filteredListCache = null;
-            _lastDedupHash = -1;
-            _dedupedFilterCache = null;
+            _lastExcludeHtHash = -1;
+            _excludeHtFilterCache = null;
             _lastFavoriteFilterHash = -1;
             _filteredFavoriteCache = null;
+            _scanCurrentPage = 1;
+            _favoriteCurrentPage = 1;
         }
         
         private int ComputeFilterHash()
@@ -1059,15 +1134,15 @@ namespace VFXTools.Editor
                 hash = hash * 31 + filter.GetHashCode();
             }
             hash = hash * 31 + _filterLibrary.Count.GetHashCode();
-            hash = hash * 31 + _enableDedup.GetHashCode();
+            hash = hash * 31 + _excludeHtSuffix.GetHashCode();
             return hash;
         }
 
-        private int ComputeDedupHash()
+        private int ComputeExcludeHtHash(List<VFXFilterData.FilterItemData> list)
         {
             int hash = 17;
-            hash = hash * 31 + _filteredListCache?.Count.GetHashCode() ?? 0;
-            hash = hash * 31 + _enableDedup.GetHashCode();
+            hash = hash * 31 + (list?.Count ?? 0).GetHashCode();
+            hash = hash * 31 + _excludeHtSuffix.GetHashCode();
             return hash;
         }
 
@@ -1077,124 +1152,47 @@ namespace VFXTools.Editor
             
             if (_filteredListCache != null && _lastFilterHash == currentHash)
             {
-                return ApplyDedup(_filteredListCache);
+                return ApplyExcludeHtSuffix(_filteredListCache);
             }
             
             _filteredListCache = ComputeFilteredList();
             _lastFilterHash = currentHash;
             
-            return ApplyDedup(_filteredListCache);
+            return ApplyExcludeHtSuffix(_filteredListCache);
         }
         
-        private List<VFXFilterData.FilterItemData> ApplyDedup(List<VFXFilterData.FilterItemData> filteredList)
+        private List<VFXFilterData.FilterItemData> ApplyExcludeHtSuffix(List<VFXFilterData.FilterItemData> filteredList)
         {
-            if (!_enableDedup || filteredList == null || filteredList.Count == 0)
+            if (!_excludeHtSuffix || filteredList == null || filteredList.Count == 0)
             {
                 return filteredList;
             }
 
-            int currentDedupHash = ComputeDedupHash();
-            if (_dedupedFilterCache != null && _lastDedupHash == currentDedupHash)
+            int currentHash = ComputeExcludeHtHash(filteredList);
+            if (_excludeHtFilterCache != null && _lastExcludeHtHash == currentHash)
             {
-                return _dedupedFilterCache;
+                return _excludeHtFilterCache;
             }
-
-            _dedupedFilterCache = PerformDedup(filteredList);
-            _lastDedupHash = currentDedupHash;
             
-            return _dedupedFilterCache;
-        }
-
-        private List<VFXFilterData.FilterItemData> PerformDedup(List<VFXFilterData.FilterItemData> items)
-        {
-            if (items == null || items.Count == 0) return items;
-
             var result = new List<VFXFilterData.FilterItemData>();
-            var hashToItemMap = new Dictionary<string, VFXFilterData.FilterItemData>();
-
-            EditorUtility.DisplayProgressBar("特效去重", "正在计算特效预览哈希...", 0f);
-            
-            try
+            for (int i = 0; i < filteredList.Count; i++)
             {
-                for (int i = 0; i < items.Count; i++)
+                var item = filteredList[i];
+                if (item != null && !item.name.EndsWith("_ht") && !item.name.EndsWith("_hutong"))
                 {
-                    var item = items[i];
-                    if (item.prefab == null)
-                    {
-                        result.Add(item);
-                        continue;
-                    }
-
-                    string hash;
-                    if (_previewHashCache.TryGetValue(item.path, out hash))
-                    {
-                        _previewHashCacheOrder.Remove(item.path);
-                        _previewHashCacheOrder.Add(item.path);
-                    }
-                    else
-                    {
-                        EditorUtility.DisplayProgressBar("特效去重", 
-                            $"正在计算: {item.name} ({i + 1}/{items.Count})", 
-                            (float)i / items.Count);
-                        
-                        hash = VFXPreviewUtils.ComputePreviewHash(item.prefab);
-                        
-                        while (_previewHashCacheOrder.Count >= MaxPreviewHashCacheSize)
-                        {
-                            string oldestKey = _previewHashCacheOrder[0];
-                            _previewHashCacheOrder.RemoveAt(0);
-                            _previewHashCache.Remove(oldestKey);
-                        }
-                        
-                        _previewHashCache[item.path] = hash;
-                        _previewHashCacheOrder.Add(item.path);
-                    }
-
-                    if (string.IsNullOrEmpty(hash))
-                    {
-                        result.Add(item);
-                        continue;
-                    }
-
-                    bool foundSimilar = false;
-                    string similarHash = null;
-                    foreach (var existingHash in hashToItemMap.Keys)
-                    {
-                        if (VFXPreviewUtils.IsSimilar(hash, existingHash))
-                        {
-                            foundSimilar = true;
-                            similarHash = existingHash;
-                            break;
-                        }
-                    }
-
-                    if (foundSimilar && similarHash != null)
-                    {
-                        var existingItem = hashToItemMap[similarHash];
-                        if (item.name.Length < existingItem.name.Length)
-                        {
-                            hashToItemMap[similarHash] = item;
-                        }
-                    }
-                    else
-                    {
-                        hashToItemMap[hash] = item;
-                    }
+                    result.Add(item);
                 }
-
-                result.AddRange(hashToItemMap.Values);
             }
-            finally
-            {
-                EditorUtility.ClearProgressBar();
-            }
-
-            int removedCount = items.Count - result.Count;
+            
+            int removedCount = filteredList.Count - result.Count;
             if (removedCount > 0)
             {
-                Debug.Log($"[VFX Filter] 去重完成：移除了 {removedCount} 个重复特效，保留名称最简版本");
+                Debug.Log($"[VFX Filter] 已过滤 {removedCount} 个 _ht/_hutong 后缀特效");
             }
 
+            _excludeHtFilterCache = result;
+            _lastExcludeHtHash = currentHash;
+            
             return result;
         }
         
