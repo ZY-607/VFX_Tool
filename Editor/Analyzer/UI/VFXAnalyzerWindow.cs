@@ -10,7 +10,7 @@ namespace VFXTools.Editor.Analyzer
 {
     public class VFXAnalyzerWindow : EditorWindow
     {
-        private const string ToolVersion = "v0.23.0";
+        private const string ToolVersion = "v0.23.1";
         private const string LibraryCachePath = "Assets/VFX Tools/Editor/VFXLibraryCache.asset";
         
         private VFXRequirementAnalyzer analyzer;

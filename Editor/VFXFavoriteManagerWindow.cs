@@ -648,9 +648,15 @@ namespace VFXTools.Editor
             
             if (item.tags != null && item.tags.Count > 0)
             {
+                float availableWidth = EditorGUIUtility.currentViewWidth - 280f;
+                float tagSpacing = 4f;
+                float currentLineWidth = 0f;
+                float tagHeight = 18f;
+                
                 EditorGUILayout.BeginHorizontal();
-                int tagCount = Mathf.Min(item.tags.Count, 5);
-                for (int i = 0; i < tagCount; i++)
+                GUILayout.Space(0);
+                
+                for (int i = 0; i < item.tags.Count; i++)
                 {
                     string tagName = item.tags[i];
                     Color tagColor = VFXTagPoolManager.GetTagColor(tagName);
@@ -658,11 +664,19 @@ namespace VFXTools.Editor
                     _tagLabelStyle.normal.background = GetCachedTexture(tagColor);
                     _tagLabelStyle.normal.textColor = VFXEditorUtils.GetContrastColor(tagColor);
                     
-                    GUILayout.Box(tagName, _tagLabelStyle, GUILayout.Height(18));
-                }
-                if (item.tags.Count > 5)
-                {
-                    GUILayout.Label($"...", EditorStyles.miniLabel);
+                    Vector2 tagSize = _tagLabelStyle.CalcSize(new GUIContent(tagName));
+                    float tagWidth = tagSize.x + 8f;
+                    
+                    if (currentLineWidth + tagWidth > availableWidth && currentLineWidth > 0)
+                    {
+                        EditorGUILayout.EndHorizontal();
+                        EditorGUILayout.BeginHorizontal();
+                        GUILayout.Space(0);
+                        currentLineWidth = 0f;
+                    }
+                    
+                    GUILayout.Box(tagName, _tagLabelStyle, GUILayout.Height(tagHeight), GUILayout.Width(tagWidth));
+                    currentLineWidth += tagWidth + tagSpacing;
                 }
                 EditorGUILayout.EndHorizontal();
             }

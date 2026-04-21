@@ -9,7 +9,7 @@ namespace VFXTools.Editor
 {
     public class VFXFilterWindow : EditorWindow
     {
-        private const string ToolVersion = "v0.23.0";
+        private const string ToolVersion = "v0.23.1";
         private const string LibraryCachePath = "Assets/VFX Tools/Editor/VFXLibraryCache.asset";
         private const string FilterCachePath = "Assets/VFX Tools/Editor/VFXFilterCache.asset";
         private const string ScanPathPrefsKey = "VFXFilter_ScanPath";
@@ -685,9 +685,15 @@ namespace VFXTools.Editor
             
             if (item.tags != null && item.tags.Count > 0)
             {
+                float availableWidth = EditorGUIUtility.currentViewWidth - 280f;
+                float tagSpacing = 4f;
+                float currentLineWidth = 0f;
+                float tagHeight = 18f;
+                
                 EditorGUILayout.BeginHorizontal();
-                int tagCount = Mathf.Min(item.tags.Count, 5);
-                for (int i = 0; i < tagCount; i++)
+                GUILayout.Space(0);
+                
+                for (int i = 0; i < item.tags.Count; i++)
                 {
                     string tagName = item.tags[i];
                     Color tagColor = VFXTagPoolManager.GetTagColor(tagName);
@@ -695,11 +701,19 @@ namespace VFXTools.Editor
                     _tagLabelStyle.normal.background = GetCachedTexture(tagColor);
                     _tagLabelStyle.normal.textColor = VFXEditorUtils.GetContrastColor(tagColor);
                     
-                    GUILayout.Box(tagName, _tagLabelStyle, GUILayout.Height(18));
-                }
-                if (item.tags.Count > 5)
-                {
-                    GUILayout.Label($"...", EditorStyles.miniLabel);
+                    Vector2 tagSize = _tagLabelStyle.CalcSize(new GUIContent(tagName));
+                    float tagWidth = tagSize.x + 8f;
+                    
+                    if (currentLineWidth + tagWidth > availableWidth && currentLineWidth > 0)
+                    {
+                        EditorGUILayout.EndHorizontal();
+                        EditorGUILayout.BeginHorizontal();
+                        GUILayout.Space(0);
+                        currentLineWidth = 0f;
+                    }
+                    
+                    GUILayout.Box(tagName, _tagLabelStyle, GUILayout.Height(tagHeight), GUILayout.Width(tagWidth));
+                    currentLineWidth += tagWidth + tagSpacing;
                 }
                 EditorGUILayout.EndHorizontal();
             }
@@ -904,13 +918,20 @@ namespace VFXTools.Editor
                 {
                     var item = _favoriteListCache[i];
                     if (item?.tags == null) continue;
-                    for (int j = 0; j < item.tags.Count; j++)
+                    
+                    var itemTagSet = new HashSet<string>(item.tags);
+                    bool matchesAll = true;
+                    foreach (var filter in activeFilterSet)
                     {
-                        if (activeFilterSet.Contains(item.tags[j]))
+                        if (!itemTagSet.Contains(filter))
                         {
-                            result.Add(item);
+                            matchesAll = false;
                             break;
                         }
+                    }
+                    if (matchesAll)
+                    {
+                        result.Add(item);
                     }
                 }
                 _filteredFavoriteCache = result;
@@ -1244,9 +1265,15 @@ namespace VFXTools.Editor
             
             if (item.tags != null && item.tags.Count > 0)
             {
+                float availableWidth = EditorGUIUtility.currentViewWidth - 280f;
+                float tagSpacing = 4f;
+                float currentLineWidth = 0f;
+                float tagHeight = 18f;
+                
                 EditorGUILayout.BeginHorizontal();
-                int tagCount = Mathf.Min(item.tags.Count, 5);
-                for (int i = 0; i < tagCount; i++)
+                GUILayout.Space(0);
+                
+                for (int i = 0; i < item.tags.Count; i++)
                 {
                     string tagName = item.tags[i];
                     Color tagColor = VFXTagPoolManager.GetTagColor(tagName);
@@ -1254,11 +1281,19 @@ namespace VFXTools.Editor
                     _tagLabelStyle.normal.background = GetCachedTexture(tagColor);
                     _tagLabelStyle.normal.textColor = VFXEditorUtils.GetContrastColor(tagColor);
                     
-                    GUILayout.Box(tagName, _tagLabelStyle, GUILayout.Height(18));
-                }
-                if (item.tags.Count > 5)
-                {
-                    GUILayout.Label($"...", EditorStyles.miniLabel);
+                    Vector2 tagSize = _tagLabelStyle.CalcSize(new GUIContent(tagName));
+                    float tagWidth = tagSize.x + 8f;
+                    
+                    if (currentLineWidth + tagWidth > availableWidth && currentLineWidth > 0)
+                    {
+                        EditorGUILayout.EndHorizontal();
+                        EditorGUILayout.BeginHorizontal();
+                        GUILayout.Space(0);
+                        currentLineWidth = 0f;
+                    }
+                    
+                    GUILayout.Box(tagName, _tagLabelStyle, GUILayout.Height(tagHeight), GUILayout.Width(tagWidth));
+                    currentLineWidth += tagWidth + tagSpacing;
                 }
                 EditorGUILayout.EndHorizontal();
             }
