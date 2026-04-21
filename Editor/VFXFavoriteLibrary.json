@@ -208,7 +208,7 @@
             "name": "2001_hit",
             "type": "Particle",
             "loop": false,
-            "duration": 0.30000001192092896,
+            "duration": 0.30000001192092898,
             "tags": [
                 "技能特效",
                 "受击",
@@ -3113,7 +3113,7 @@
             "name": "chongjibo_white",
             "type": "Particle",
             "loop": false,
-            "duration": 0.20000000298023224,
+            "duration": 0.20000000298023225,
             "tags": [
                 "技能特效",
                 "场景特效",
@@ -3874,7 +3874,7 @@
             "name": "szl_sj_001",
             "type": "Particle",
             "loop": false,
-            "duration": 1.2000000476837158,
+            "duration": 1.2000000476837159,
             "tags": [
                 "技能特效",
                 "场景特效",
@@ -3887,7 +3887,7 @@
             "name": "szl_sj_002",
             "type": "Particle",
             "loop": false,
-            "duration": 1.2000000476837158,
+            "duration": 1.2000000476837159,
             "tags": [
                 "技能特效",
                 "场景特效",
@@ -3900,7 +3900,7 @@
             "name": "szl_sj_005",
             "type": "Particle",
             "loop": false,
-            "duration": 1.2000000476837158,
+            "duration": 1.2000000476837159,
             "tags": [
                 "技能特效",
                 "场景特效",
@@ -3913,7 +3913,7 @@
             "name": "szl_sj_006",
             "type": "Particle",
             "loop": false,
-            "duration": 1.2000000476837158,
+            "duration": 1.2000000476837159,
             "tags": [
                 "技能特效",
                 "场景特效",
@@ -3926,7 +3926,7 @@
             "name": "sztj_jujingningshen_red",
             "type": "Particle",
             "loop": false,
-            "duration": 1.7000000476837158,
+            "duration": 1.7000000476837159,
             "tags": [
                 "技能特效",
                 "场景特效",
@@ -3939,7 +3939,7 @@
             "name": "sztj_yuansuningju_yellow",
             "type": "Particle",
             "loop": false,
-            "duration": 1.7000000476837158,
+            "duration": 1.7000000476837159,
             "tags": [
                 "技能特效",
                 "场景特效",
@@ -3952,7 +3952,7 @@
             "name": "sztj_yuansuzhenchan_yellow",
             "type": "Particle",
             "loop": false,
-            "duration": 1.7000000476837158,
+            "duration": 1.7000000476837159,
             "tags": [
                 "技能特效",
                 "场景特效",
@@ -4283,7 +4283,7 @@
             "name": "pf_fx_ui_cjjt_hzcx",
             "type": "Particle",
             "loop": false,
-            "duration": 0.20000000298023224,
+            "duration": 0.20000000298023225,
             "tags": [
                 "技能特效",
                 "UI特效",
@@ -4297,7 +4297,7 @@
             "name": "pf_fx_ui_cyzm_yqdj",
             "type": "Particle",
             "loop": false,
-            "duration": 0.20000000298023224,
+            "duration": 0.20000000298023225,
             "tags": [
                 "技能特效",
                 "UI特效",
@@ -5048,7 +5048,7 @@
             "name": "limo_skill01_nlq",
             "type": "Particle",
             "loop": true,
-            "duration": 8.300000190734863,
+            "duration": 8.300000190734864,
             "tags": [
                 "技能特效",
                 "场景特效",
@@ -5061,7 +5061,7 @@
             "name": "lns_guanghuan_lao1",
             "type": "Particle",
             "loop": false,
-            "duration": 1.2000000476837158,
+            "duration": 1.2000000476837159,
             "tags": [
                 "技能特效",
                 "场景特效",

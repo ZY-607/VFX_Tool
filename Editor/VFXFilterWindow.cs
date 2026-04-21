@@ -9,7 +9,7 @@ namespace VFXTools.Editor
 {
     public class VFXFilterWindow : EditorWindow
     {
-        private const string ToolVersion = "v0.23.1";
+        private const string ToolVersion = "v0.23.2";
         private const string LibraryCachePath = "Assets/VFX Tools/Editor/VFXLibraryCache.asset";
         private const string FilterCachePath = "Assets/VFX Tools/Editor/VFXFilterCache.asset";
         private const string ScanPathPrefsKey = "VFXFilter_ScanPath";

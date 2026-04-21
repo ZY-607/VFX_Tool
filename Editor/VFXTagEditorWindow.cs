@@ -26,6 +26,7 @@ namespace VFXTools.Editor
             window._onModified = onModified;
             window._isFilterMode = false;
             window._isFavoriteMode = false;
+            window._hasUnsavedChanges = false;
             window.minSize = new Vector2(400, 500);
         }
 
@@ -37,6 +38,7 @@ namespace VFXTools.Editor
             window._onModified = onModified;
             window._isFilterMode = true;
             window._isFavoriteMode = false;
+            window._hasUnsavedChanges = false;
             window.minSize = new Vector2(400, 500);
         }
 
@@ -47,6 +49,7 @@ namespace VFXTools.Editor
             window._onModified = onModified;
             window._isFilterMode = false;
             window._isFavoriteMode = true;
+            window._hasUnsavedChanges = false;
             window.minSize = new Vector2(400, 500);
         }
 
@@ -332,6 +335,7 @@ namespace VFXTools.Editor
                 }
             }
             
+            _hasUnsavedChanges = false;
             _onModified?.Invoke();
             Repaint();
         }
