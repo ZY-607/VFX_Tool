@@ -6,23 +6,23 @@
             "tags": [
                 {
                     "name": "技能特效",
-                    "colorHex": "#5F4654"
+                    "colorHex": "#5A5AB5"
                 },
                 {
                     "name": "UI特效",
-                    "colorHex": "#495D7F"
+                    "colorHex": "#C337B5"
                 },
                 {
                     "name": "场景特效",
-                    "colorHex": "#A06EBA"
+                    "colorHex": "#604166"
                 },
                 {
                     "name": "常态特效",
-                    "colorHex": "#3B3B5F"
+                    "colorHex": "#5C6841"
                 },
                 {
                     "name": "通用特效",
-                    "colorHex": "#AAA357"
+                    "colorHex": "#A93AB3"
                 }
             ]
         },
@@ -31,83 +31,87 @@
             "tags": [
                 {
                     "name": "蓄力",
-                    "colorHex": "#B66291"
+                    "colorHex": "#A6B735"
                 },
                 {
                     "name": "施法",
-                    "colorHex": "#71B9AD"
+                    "colorHex": "#97809B"
                 },
                 {
                     "name": "拖尾",
-                    "colorHex": "#8D7E8D"
+                    "colorHex": "#70774E"
                 },
                 {
                     "name": "弹道",
-                    "colorHex": "#4790AD"
+                    "colorHex": "#C695A5"
                 },
                 {
                     "name": "受击",
-                    "colorHex": "#6B95A2"
+                    "colorHex": "#5B4971"
                 },
                 {
                     "name": "消散",
-                    "colorHex": "#A3514E"
+                    "colorHex": "#8D6536"
+                },
+                {
+                    "name": "吸收",
+                    "colorHex": "#A689A7"
+                },
+                {
+                    "name": "流光",
+                    "colorHex": "#9F927A"
                 },
                 {
                     "name": "护盾",
-                    "colorHex": "#969046"
+                    "colorHex": "#7FA66C"
                 },
                 {
                     "name": "防御",
-                    "colorHex": "#448EA2"
+                    "colorHex": "#9F37B7"
                 },
                 {
                     "name": "辅助",
-                    "colorHex": "#A9428D"
-                },
-                {
-                    "name": "控制",
-                    "colorHex": "#377663"
+                    "colorHex": "#6E44B7"
                 },
                 {
                     "name": "攻击",
-                    "colorHex": "#CA8D9F"
+                    "colorHex": "#BCAE39"
                 },
                 {
                     "name": "治疗",
-                    "colorHex": "#9A5B66"
+                    "colorHex": "#9B95BD"
                 },
                 {
                     "name": "BUFF",
-                    "colorHex": "#C9A365"
+                    "colorHex": "#B63489"
                 },
                 {
                     "name": "DEBUFF",
-                    "colorHex": "#80665A"
+                    "colorHex": "#A59937"
                 },
                 {
                     "name": "预警",
-                    "colorHex": "#74BAC2"
+                    "colorHex": "#BF9C41"
                 },
                 {
                     "name": "陷阱",
-                    "colorHex": "#943B80"
+                    "colorHex": "#89B859"
                 },
                 {
                     "name": "称号",
-                    "colorHex": "#7352C5"
+                    "colorHex": "#7AB45E"
                 },
                 {
                     "name": "界面提示",
-                    "colorHex": "#8DA39F"
+                    "colorHex": "#84ACB5"
                 },
                 {
                     "name": "点击反馈",
-                    "colorHex": "#C47CCA"
+                    "colorHex": "#7B489F"
                 },
                 {
                     "name": "装饰点缀",
-                    "colorHex": "#42A164"
+                    "colorHex": "#877A9A"
                 }
             ]
         },
@@ -116,43 +120,47 @@
             "tags": [
                 {
                     "name": "单体",
-                    "colorHex": "#B95A80"
+                    "colorHex": "#65AD3B"
                 },
                 {
                     "name": "群体",
-                    "colorHex": "#5A7073"
+                    "colorHex": "#7E9667"
                 },
                 {
                     "name": "直线",
-                    "colorHex": "#5E9B64"
+                    "colorHex": "#A3893A"
                 },
                 {
                     "name": "圆形",
-                    "colorHex": "#463E78"
+                    "colorHex": "#755F85"
                 },
                 {
                     "name": "环形",
-                    "colorHex": "#B07D41"
+                    "colorHex": "#C09C77"
                 },
                 {
                     "name": "扇形",
-                    "colorHex": "#9A89B4"
+                    "colorHex": "#A9BD69"
                 },
                 {
-                    "name": "锥形",
-                    "colorHex": "#A3ACAB"
+                    "name": "方形",
+                    "colorHex": "#B997A3"
                 },
                 {
-                    "name": "屏幕效果",
-                    "colorHex": "#557598"
+                    "name": "矩形",
+                    "colorHex": "#727486"
                 },
                 {
                     "name": "氛围效果",
-                    "colorHex": "#88624D"
+                    "colorHex": "#356DA1"
+                },
+                {
+                    "name": "屏幕效果",
+                    "colorHex": "#B98686"
                 },
                 {
                     "name": "过场效果",
-                    "colorHex": "#99C18E"
+                    "colorHex": "#5EB3AF"
                 }
             ]
         },
@@ -161,107 +169,107 @@
             "tags": [
                 {
                     "name": "火",
-                    "colorHex": "#3A99A2"
+                    "colorHex": "#A83849"
                 },
                 {
                     "name": "水",
-                    "colorHex": "#444D4A"
+                    "colorHex": "#4D3738"
                 },
                 {
                     "name": "风",
-                    "colorHex": "#7D6950"
+                    "colorHex": "#6C4B62"
                 },
                 {
                     "name": "土",
-                    "colorHex": "#343B36"
+                    "colorHex": "#B55D56"
                 },
                 {
                     "name": "电",
-                    "colorHex": "#4C859B"
+                    "colorHex": "#563B98"
                 },
                 {
                     "name": "冰",
-                    "colorHex": "#5D8794"
+                    "colorHex": "#A27F83"
                 },
                 {
                     "name": "毒",
-                    "colorHex": "#C3CCBE"
+                    "colorHex": "#3A4440"
                 },
                 {
                     "name": "黑暗系",
-                    "colorHex": "#A1A2C7"
+                    "colorHex": "#37A17E"
                 },
                 {
                     "name": "水墨",
-                    "colorHex": "#72A94B"
+                    "colorHex": "#629D3E"
                 },
                 {
                     "name": "粒子",
-                    "colorHex": "#43838F"
+                    "colorHex": "#7197B1"
                 },
                 {
                     "name": "植物",
-                    "colorHex": "#4DA5A6"
+                    "colorHex": "#4C6BBA"
                 },
                 {
                     "name": "动物",
-                    "colorHex": "#A6953D"
+                    "colorHex": "#3B8DC5"
                 },
                 {
                     "name": "科技",
-                    "colorHex": "#B7A545"
+                    "colorHex": "#A1AF59"
                 },
                 {
                     "name": "中式",
-                    "colorHex": "#3C5E6B"
+                    "colorHex": "#B8A7B7"
                 },
                 {
                     "name": "欧式",
-                    "colorHex": "#AA509B"
+                    "colorHex": "#AD9EAA"
                 },
                 {
                     "name": "文字",
-                    "colorHex": "#A187A5"
+                    "colorHex": "#C23BBB"
                 },
                 {
                     "name": "数字",
-                    "colorHex": "#B28A9A"
+                    "colorHex": "#494691"
                 },
                 {
                     "name": "符文符号",
-                    "colorHex": "#8D8084"
+                    "colorHex": "#6F6C59"
                 },
                 {
                     "name": "烟花",
-                    "colorHex": "#9D7AB2"
+                    "colorHex": "#AA608E"
                 },
                 {
                     "name": "宇宙",
-                    "colorHex": "#B8B45A"
+                    "colorHex": "#B9C866"
                 },
                 {
                     "name": "星空",
-                    "colorHex": "#CB3CA9"
+                    "colorHex": "#867D3A"
                 },
                 {
                     "name": "时间",
-                    "colorHex": "#B7B55C"
+                    "colorHex": "#53B46B"
                 },
                 {
                     "name": "法阵",
-                    "colorHex": "#909B6B"
+                    "colorHex": "#50AA67"
                 },
                 {
                     "name": "成功",
-                    "colorHex": "#3A894F"
+                    "colorHex": "#60C78F"
                 },
                 {
                     "name": "失败",
-                    "colorHex": "#81C55E"
+                    "colorHex": "#AA9B6E"
                 },
                 {
                     "name": "宝箱",
-                    "colorHex": "#5C3F54"
+                    "colorHex": "#869571"
                 }
             ]
         },
@@ -270,27 +278,27 @@
             "tags": [
                 {
                     "name": "瞬发",
-                    "colorHex": "#AF7E74"
+                    "colorHex": "#42717F"
                 },
                 {
                     "name": "持续",
-                    "colorHex": "#7CB763"
+                    "colorHex": "#499B42"
                 },
                 {
                     "name": "收尾",
-                    "colorHex": "#614D87"
+                    "colorHex": "#613575"
                 },
                 {
                     "name": "多段爆发",
-                    "colorHex": "#897DA6"
+                    "colorHex": "#6C5341"
                 },
                 {
                     "name": "蓄力爆发",
-                    "colorHex": "#5C7E77"
+                    "colorHex": "#753893"
                 },
                 {
                     "name": "舒缓柔和",
-                    "colorHex": "#B59E4C"
+                    "colorHex": "#7B349D"
                 }
             ]
         },
@@ -299,55 +307,59 @@
             "tags": [
                 {
                     "name": "红",
-                    "colorHex": "#4D8AA0"
+                    "colorHex": "#753985"
                 },
                 {
                     "name": "蓝",
-                    "colorHex": "#353D7F"
+                    "colorHex": "#45959B"
                 },
                 {
                     "name": "绿",
-                    "colorHex": "#4BB17D"
+                    "colorHex": "#BD7B95"
                 },
                 {
                     "name": "黄",
-                    "colorHex": "#C6BD8A"
+                    "colorHex": "#6D7ECC"
                 },
                 {
                     "name": "紫",
-                    "colorHex": "#406339"
+                    "colorHex": "#AAAF5E"
                 },
                 {
                     "name": "橙",
-                    "colorHex": "#A1A268"
+                    "colorHex": "#595E5C"
                 },
                 {
-                    "name": "多彩",
-                    "colorHex": "#614F67"
-                },
-                {
-                    "name": "金",
-                    "colorHex": "#924992"
-                },
-                {
-                    "name": "银",
-                    "colorHex": "#98504B"
-                },
-                {
-                    "name": "暗黑",
-                    "colorHex": "#AD525A"
-                },
-                {
-                    "name": "粉",
-                    "colorHex": "#7EA654"
+                    "name": "棕",
+                    "colorHex": "#B8937E"
                 },
                 {
                     "name": "青",
-                    "colorHex": "#497994"
+                    "colorHex": "#7855C1"
+                },
+                {
+                    "name": "粉",
+                    "colorHex": "#769F53"
+                },
+                {
+                    "name": "金",
+                    "colorHex": "#64B55F"
+                },
+                {
+                    "name": "银",
+                    "colorHex": "#7F7A9C"
+                },
+                {
+                    "name": "暗黑",
+                    "colorHex": "#90597D"
+                },
+                {
+                    "name": "多彩",
+                    "colorHex": "#B16B8F"
                 },
                 {
                     "name": "色散",
-                    "colorHex": "#A5BB88"
+                    "colorHex": "#8A6975"
                 }
             ]
         },
@@ -356,15 +368,15 @@
             "tags": [
                 {
                     "name": "低",
-                    "colorHex": "#8B8072"
+                    "colorHex": "#CAA355"
                 },
                 {
                     "name": "中",
-                    "colorHex": "#65B798"
+                    "colorHex": "#39344A"
                 },
                 {
                     "name": "高",
-                    "colorHex": "#7048A0"
+                    "colorHex": "#88436C"
                 }
             ]
         },
@@ -373,11 +385,11 @@
             "tags": [
                 {
                     "name": "循环",
-                    "colorHex": "#A797CA"
+                    "colorHex": "#50A17B"
                 },
                 {
                     "name": "不循环",
-                    "colorHex": "#408BA9"
+                    "colorHex": "#4B78A0"
                 }
             ]
         }
