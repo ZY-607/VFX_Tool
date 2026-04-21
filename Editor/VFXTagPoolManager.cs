@@ -371,6 +371,14 @@ namespace VFXTools.Editor
         public static void RemoveCategory(string categoryName)
         {
             var data = GetTagPool();
+            var category = data.categories.FirstOrDefault(c => c.name == categoryName);
+            if (category?.tags != null)
+            {
+                foreach (var tag in category.tags)
+                {
+                    OnTagRemoved?.Invoke(tag.name);
+                }
+            }
             data.categories.RemoveAll(c => c.name == categoryName);
         }
 
