@@ -7,7 +7,7 @@ namespace VFXTools.Editor
 {
     public class VFXFavoriteManagerWindow : EditorWindow
     {
-        private const string ToolVersion = "v0.21.0";
+        private const string ToolVersion = "v0.23.4";
         private const string FilterCachePath = "Assets/VFX Tools/Editor/VFXFilterCache.asset";
         
         private const float ItemHeight = 90f;
