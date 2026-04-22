@@ -87,7 +87,7 @@ namespace VFXTools.Editor
             return "未知";
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             if (_hasUnsavedChanges)
             {

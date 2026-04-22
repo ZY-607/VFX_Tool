@@ -9,7 +9,7 @@ namespace VFXTools.Editor
 {
     public class VFXComposerWindow : EditorWindow
     {
-        private const string ToolVersion = "v0.23.2";
+        private const string ToolVersion = "v0.23.3";
         private List<VFXLibraryData.VFXAssetItemData> _library = new List<VFXLibraryData.VFXAssetItemData>();
         private GameObject _previewStructureRoot; // 预览结构根节点
         private List<GameObject> _composerSlots = new List<GameObject>();

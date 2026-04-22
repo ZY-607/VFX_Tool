@@ -139,6 +139,7 @@ namespace VFXTools.Editor
 
         private void OnTagsModified()
         {
+            RefreshFilteredList(resetScroll: false);
             Repaint();
         }
 
